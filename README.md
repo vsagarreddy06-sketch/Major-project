@@ -80,7 +80,7 @@ Ensure that the following software is installed on the local machine:
 
 1.  **Clone the source repository:**
     ```sh
-    git clone [https://github.com/your-username/your-repository-name.git](https://github.com/your-username/your-repository-name.git)
+    git clone [https://github.com/Immortalcoder0/Major-Project.git](https://github.com/Immortalcoder0/Major-Project.git)
     ```
 
 2.  **Navigate to the server directory and install the required dependencies:**
@@ -125,6 +125,6 @@ The following is a list of potential enhancements that could be implemented to e
 
 ## Contact Information
 
-\[Your Name] - \[your.email@example.com]
+\[Subhankar Das] - \[business00gmrimmortal@gmail.com]
 
-Project Repository: [https://github.com/your-username/your-repository-name](https://github.com/your-username/your-repository-name)
+Project Repository: [https://github.com/Immortalcoder0/Major-Project.git](https://github.com/Immortalcoder0/Major-Project.git)
