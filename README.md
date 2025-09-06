@@ -108,8 +108,8 @@ Subsequent to the successful initiation of the server and the launching of the f
 
 * **User Testing**: A new user account may be registered, or alternatively, the default credentials (`user@email.com`) may be utilized.
 * **Administrator Testing**: Access to the administrative dashboard can be obtained by logging in with the default administrator credentials:
-    * **Email**: `admin@email.com`
-    * **Password**: `admin123`
+    * **Email**: `admin@gmail.com`
+    * **Password**: `admin_123`
 
 The administrative interface permits the addition of new products, which can then be viewed and purchased through the user-facing storefront.
 
