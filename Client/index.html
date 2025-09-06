@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CORIZO SHOPPING</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#" id="home-link">CORIZO SHOPPING</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#" data-page="home-page">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-page="products-page">Products</a></li>
+          <li class="nav-item"><a class="nav-link d-none" href="#" id="admin-link" data-page="admin-dashboard-page">Admin</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-page="about-page">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-page="contact-page">Contact</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center flex-column flex-lg-row">
+          <a class="nav-link text-white me-lg-3 mb-2 mb-lg-0 d-none" href="#" id="my-orders-link" data-page="orders-page">My Orders</a>
+          <a class="nav-link text-white me-lg-3 mb-2 mb-lg-0" href="#" id="account-link" data-page="account-page">Account</a>
+          <button class="btn btn-outline-light position-relative" id="cart-btn">
+            <i class="fas fa-shopping-cart"></i> Cart
+            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    <section id="home-page" class="page-section active">
+
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=2864" class="d-block mx-lg-auto img-fluid hero-image" alt="Modern electronics on a desk" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">The Best Electronics, Delivered to You</h1>
+        <p class="lead">Discover top-tier gadgets and accessories. Unbeatable prices, unmatched quality, and fast, reliable shipping. Your new favorite device is just a click away.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" id="go-to-products-btn-hero" data-page="products-page">Shop All Products</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-light py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <div class="fa-stack fa-2x mb-3">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-shipping-fast fa-stack-1x fa-inverse"></i>
+          </div>
+          <h4 class="fw-bold">Fast Shipping</h4>
+          <p class="text-muted">Get your orders delivered to your doorstep in record time.</p>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <div class="fa-stack fa-2x mb-3">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+          </div>
+          <h4 class="fw-bold">Secure Payments</h4>
+          <p class="text-muted">Your transactions are safe with our encrypted payment gateways.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="fa-stack fa-2x mb-3">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-headset fa-stack-1x fa-inverse"></i>
+          </div>
+          <h4 class="fw-bold">24/7 Support</h4>
+          <p class="text-muted">Our dedicated support team is here to help you anytime.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container py-5">
+    <h2 class="text-center mb-5 fw-bold">Hot Deals This Week</h2>
+    <div id="featured-products-container" class="row g-4">
+      </div>
+  </div>
+
+</section>
+
+    <section id="products-page" class="page-section">
+      <h2 class="text-center mb-4">Our Products</h2>
+      <div id="product-container" class="row g-4"></div>
+    </section>
+    <section id="product-detail-page" class="page-section">
+      <div class="container">
+        <div class="mb-4">
+            <button class="btn btn-outline-secondary" id="back-to-products-btn">
+                <i class="fas fa-arrow-left me-2"></i>Back to Products
+            </button>
+        </div>
+
+        <div class="row g-5">
+          <div class="col-md-6">
+            <img src="https://via.placeholder.com/600" id="product-detail-image" class="img-fluid rounded shadow-sm" alt="Product Image">
+          </div>
+
+          <div class="col-md-6">
+            <h1 id="product-detail-title" class="display-5 fw-bold">Product Name</h1>
+            <p id="product-detail-price" class="fs-3 text-primary fw-light mb-4">₹0.00</p>
+            <p id="product-detail-description" class="lead">Full product description </p>
+
+            <hr class="my-4">
+
+            <div class="d-flex align-items-center mb-4">
+              <label class="form-label me-3 mb-0 fs-5">Quantity:</label>
+              <div class="input-group" style="width: 130px;">
+                <button class="btn btn-outline-secondary" type="button" id="quantity-minus">-</button>
+                <input type="text" id="quantity-input" class="form-control text-center" value="1" readonly>
+                <button class="btn btn-outline-secondary" type="button" id="quantity-plus">+</button>
+              </div>
+            </div>
+
+            <div class="d-grid">
+              <button class="btn btn-primary btn-lg" id="add-to-cart-detail-btn">
+                <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+    </section>
+
+    <section id="product-page" class="page-section">
+      <div id="product-details" class="row g-4 mb-5"></div>
+      <div class="text-center mt-4">
+        <button class="btn btn-secondary" id="back-to-dashboard-btn">Back to Products</button>
+      </div>
+    </section>
+
+    <section id="admin-dashboard-page" class="page-section">
+      <h2 class="text-center mb-4">Admin Dashboard</h2>
+      <ul class="nav nav-tabs mb-4">
+        <li class="nav-item"><a class="nav-link active" id="manage-products-tab" data-bs-toggle="tab" href="#manage-products">Manage Products</a></li>
+        <li class="nav-item"><a class="nav-link" id="view-orders-tab" data-bs-toggle="tab" href="#view-orders">Customer Orders</a></li>
+        <li class="nav-item"><a class="nav-link" id="view-customers-tab" data-bs-toggle="tab" href="#view-customers">View Customers</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="manage-products">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="card p-4 shadow-sm">
+                <h4 class="card-title mb-3">Add New Product</h4>
+                <form id="add-product-form">
+                  <div class="mb-3"><label class="form-label">Product Name</label><input type="text" class="form-control" id="product-name" required></div>
+                  <div class="mb-3"><label class="form-label">Price</label><input type="number" step="0.01" class="form-control" id="product-price" required></div>
+                  <div class="mb-3"><label class="form-label">Image URL</label><input type="url" class="form-control" id="product-image" required></div>
+                  <div class="mb-3"><label class="form-label">Description</label><textarea class="form-control" id="product-description" rows="3" required></textarea></div>
+                  <button type="submit" class="btn btn-success w-100">Add Product</button>
+                </form>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="card p-4 shadow-sm">
+                <h4 class="card-title mb-3">Manage Products</h4>
+                <ul id="admin-product-list" class="list-group list-group-flush"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="view-orders">
+          <div class="card p-4 shadow-sm">
+            <h4 class="card-title mb-3">Customer Orders</h4>
+            <div id="admin-orders-list"><p class="text-center text-muted">No orders placed yet.</p></div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="view-customers">
+          <div class="card p-4 shadow-sm">
+            <h4 class="card-title mb-3">Registered Customers</h4>
+            <ul id="admin-customers-list" class="list-group list-group-flush"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="account-page" class="page-section">
+      <h2 class="text-center mb-4">My Account</h2>
+      <div class="card p-4 mx-auto" style="max-width: 500px;">
+        <div class="text-center mb-3"><i class="fas fa-user-circle fa-5x text-secondary mb-2"></i></div>
+        <form id="account-info-form">
+          <div class="mb-3"><label class="form-label fw-bold">Name</label><input type="text" class="form-control" id="account-name" disabled></div>
+          <div class="mb-3"><label class="form-label fw-bold">Email</label><input type="email" class="form-control" id="account-email" disabled></div>
+          <div class="mb-3"><label class="form-label fw-bold">Phone</label><input type="tel" class="form-control" id="account-phone" disabled></div>
+          <div class="mb-3"><label class="form-label fw-bold">Address</label><textarea class="form-control" id="account-address" rows="3" disabled></textarea></div>
+          <div class="d-flex justify-content-end mt-4">
+            <button type="button" class="btn btn-primary me-2" id="edit-account-btn">Edit</button>
+            <button type="submit" class="btn btn-success d-none" id="save-account-btn">Save</button>
+          </div>
+          <button type="button" class="btn btn-danger w-100 mt-3" id="logout-btn">Logout</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="orders-page" class="page-section">
+      <h2 class="text-center mb-4">My Orders</h2>
+      <div id="orders-list" class="list-group"></div>
+    </section>
+
+    <section id="order-summary-page" class="page-section">
+      <h2 class="text-center mb-4">Order Summary</h2>
+      <div class="card p-4">
+        <ul id="order-summary-items" class="list-group list-group-flush mb-3"></ul>
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Total: <span id="summary-total" class="fw-bold">₹0.00</span></h5>
+          <button class="btn btn-primary" id="proceed-to-checkout-btn">Proceed to Checkout</button>
+        </div>
+        <div class="mt-3 text-end">
+          <button class="btn btn-outline-secondary" id="cancel-summary-btn">Cancel Order</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="payment-page" class="page-section">
+      <h2 class="text-center mb-4">Payment</h2>
+      <div class="card p-4 mx-auto" style="max-width: 500px;">
+        <h5 class="mb-3 text-center">Choose a payment method</h5>
+        <button class="btn btn-success btn-lg w-100" id="cod-btn">Cash on Delivery</button>
+        <button class="btn btn-link mt-3" id="back-to-summary-btn">Go back</button>
+      </div>
+    </section>
+
+    <section id="about-page" class="page-section">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <h1 class="display-6 fw-bold mb-2">About This Project</h1>
+              <p class="lead text-muted mb-3">
+                <strong>CORIZO-SHOPPING</strong> is a lightweight full-stack e-commerce demo built to teach and showcase
+                practical web development concepts. It combines a Node.js + Express backend with MongoDB for data storage
+                and a Bootstrap-driven frontend for a clean, responsive UI.
+              </p>
+              <h5 class="mt-4">✨ Key Features</h5>
+              <ul class="list-unstyled mb-3">
+                <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i><strong>User Authentication</strong> — register, login, and manage profile.</li>
+                <li class="mb-2"><i class="fa-solid fa-box-open text-success me-2"></i><strong>Product Management</strong> — browse products; admins can add/delete.</li>
+                <li class="mb-2"><i class="fa-solid fa-cart-shopping text-success me-2"></i><strong>Shopping Cart & Checkout</strong> — add/remove items and place orders.</li>
+                <li class="mb-2"><i class="fa-solid fa-clipboard-list text-success me-2"></i><strong>Order Management</strong> — users and admins can view orders.</li>
+                <li class="mb-2"><i class="fa-solid fa-user-shield text-success me-2"></i><strong>Admin Dashboard</strong> — manage products, users, and orders.</li>
+              </ul>
+            </div>
+            <div class="col-lg-4 text-center">
+              <div class="p-3">
+                <i class="fa-solid fa-store fa-4x text-primary mb-3"></i>
+                <h6 class="mb-2">Project Snapshot</h6>
+                <p class="small text-muted">
+                  Tech: <strong>Node.js</strong>, <strong>Express</strong>, <strong>MongoDB</strong>, <strong>Bootstrap</strong><br/>
+                  Purpose: Learning, demo, and quick prototyping
+                </p>
+                <a href="#products-page" class="btn btn-outline-primary w-100 mb-2" data-page="products-page">Browse Products</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-page" class="page-section">
+      <h2 class="text-center mb-4">Contact Us</h2>
+      <div class="row mb-5 text-center">
+  <div class="col-lg-4 col-md-6 mx-auto mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <img src="https://i.ibb.co/Fqk3xXm9/Whats-App-Image-2025-09-06-at-18-21-13-ca32abef.jpg" alt="Developer 1" class="profile-img rounded-circle mb-3 shadow">
+        
+        <h4 class="card-title">Subhankar Das</h4>
+        <p class="card-text text-muted">Full-Stack Developer</p>
+        
+        <hr>
+        
+        <div class="d-grid gap-2">
+            <a href="https://www.linkedin.com/in/sd000" class="btn btn-primary">
+                <i class="fab fa-linkedin me-2"></i> LinkedIn
+            </a>
+            <a href="mailto:business00gmrimmortal@gmail.com" class="btn btn-outline-secondary">
+                <i class="fas fa-envelope me-2"></i> Email
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-6 mx-auto mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <img src="https://i.ibb.co/rKbNrpmT/IMG-20240212-193605.webp" alt="Developer 2" class="profile-img rounded-circle mb-3 shadow">
+        
+        <h4 class="card-title">Rodda Sasidhar</h4>
+        <p class="card-text text-muted">Frontend Specialist</p>
+        
+        <hr>
+        
+        <div class="d-grid gap-2">
+            <a href="https://www.linkedin.com/in/sasidhar-rodda-317006372/" class="btn btn-primary">
+                <i class="fab fa-linkedin me-2"></i> LinkedIn
+            </a>
+            <a href="mailto:roddasasidhar5@gmail.com" class="btn btn-outline-secondary">
+                <i class="fas fa-envelope me-2"></i> Email
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </section>
+  </main>
+
+  <div class="modal fade" id="registerModal" tabindex="-1">
+    <div class="modal-dialog"><div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Register</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="register-form">
+          <div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control" id="reg-email" required></div>
+          <div class="mb-3"><label class="form-label">Password</label><input type="password" class="form-control" id="reg-password" required></div>
+          <div class="mb-3"><label class="form-label">Phone</label><input type="tel" class="form-control" id="reg-phone" required></div>
+          <div class="mb-3"><label class="form-label">Address</label><textarea class="form-control" id="reg-address" rows="3" required></textarea></div>
+          <button type="submit" class="btn btn-primary w-100">Register</button>
+        </form>
+      </div>
+      <div class="modal-footer justify-content-center"><p>Already have an account? <a href="#" id="show-login-link">Login here</a></p></div>
+    </div></div>
+  </div>
+
+  <div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog"><div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Login</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="login-form">
+          <div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control" id="login-email" required></div>
+          <div class="mb-3"><label class="form-label">Password</label><input type="password" class="form-control" id="login-password" required></div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+      </div>
+      <div class="modal-footer justify-content-center"><p>Don’t have an account? <a href="#" id="show-register-link">Register here</a></p></div>
+    </div></div>
+  </div>
+
+  <div class="modal fade" id="cartModal" tabindex="-1">
+    <div class="modal-dialog modal-lg"><div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Shopping Cart</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <ul id="cart-items" class="list-group list-group-flush mb-3"></ul>
+        <div class="d-flex justify-content-between align-items-center">
+          <h5>Total: <span id="cart-total" class="fw-bold">₹0.00</span></h5>
+          <button class="btn btn-success" id="view-order-summary-btn" data-bs-dismiss="modal">Checkout</button>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="modal fade" id="orderConfirmationModal" tabindex="-1">
+    <div class="modal-dialog"><div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Confirm Your Order</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <h6 class="fw-bold">Shipping Details</h6>
+        <p id="confirmation-name"></p><p id="confirmation-phone"></p><p id="confirmation-address"></p>
+        <button class="btn btn-sm btn-outline-secondary mt-2" id="edit-address-btn">Edit Details</button>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-success" id="confirm-order-btn">Place Order</button>
+      </div>
+    </div></div>
+  </div>
+
+  <footer class="footer text-center py-3 bg-dark text-white mt-auto">
+    <p class="mb-1">corizo &copy; July 2025. All rights reserved.</p>
+    <p class="mb-0">Follow us:
+      <a href="#" class="text-white ms-2"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#" class="text-white ms-2"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="text-white ms-2"><i class="fa-brands fa-youtube"></i></a>
+    </p>
+  </footer>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto" id="toast-title">Notification</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body" id="toast-body">
+        </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
